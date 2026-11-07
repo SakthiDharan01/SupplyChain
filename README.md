@@ -4,8 +4,6 @@ Code, random seeds and result files for the paper **"Governed Autonomous Mitigat
 
 Authors: Sakthi Dharan M A, Srinivasan D, Tarun R R, S Sindhu — Department of Computer Science and Engineering, Easwari Engineering College, Chennai, India.
 
-> **All results come from simulation.** No real disruption data was used. The paper states this as its main limitation.
-
 ## What is here
 
 | Folder | Contents |
