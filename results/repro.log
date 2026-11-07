@@ -1,0 +1,56 @@
+training GBM baseline ...
+
+MAIN TABLE
+No mitigation                              Brier 0.1720±0.0040 ECE 0.0953 cost 2.594±0.092 prot 0.000 onset 0.000 hit 0.000 cov 0.000 maxA 0.00
+Static scorecard + approval                Brier 0.1720±0.0040 ECE 0.0953 cost 2.083±0.068 prot 0.489 onset 0.486 hit 0.000 cov 0.000 maxA 0.00
+Independent Beta + approval                Brier 0.1396±0.0036 ECE 0.0495 cost 1.729±0.051 prot 0.587 onset 0.456 hit 0.000 cov 0.000 maxA 0.00
+Supervised GBM + approval                  Brier 0.1212±0.0032 ECE 0.0126 cost 1.649±0.049 prot 0.686 onset 0.535 hit 0.000 cov 0.000 maxA 0.00
+Trust graph + approval                     Brier 0.1369±0.0033 ECE 0.0454 cost 1.692±0.048 prot 0.683 onset 0.574 hit 0.000 cov 0.000 maxA 0.00
+Independent Beta + governed autonomy       Brier 0.1396±0.0036 ECE 0.0495 cost 1.727±0.051 prot 0.588 onset 0.456 hit 0.358 cov 0.343 maxA 1.50
+Trust graph + governed autonomy            Brier 0.1369±0.0033 ECE 0.0454 cost 1.690±0.048 prot 0.685 onset 0.575 hit 0.319 cov 0.352 maxA 1.50
+Trust graph + unrestricted autonomy        Brier 0.1369±0.0033 ECE 0.0454 cost 1.643±0.046 prot 0.707 onset 0.553 hit 0.275 cov 1.000 maxA 3.00
+Oracle (perfect foresight)                 Brier 0.0000±0.0000 ECE 0.0000 cost 0.734±0.025 prot 1.000 onset 1.000 hit 0.000 cov 0.000 maxA 0.00
+
+PAIRED (mean, 95% half-width)
+  brier_pro_minus_ind: -0.0027 ± 0.0004
+  brier_pro_minus_gbm: +0.0157 ± 0.0008
+  brier_ind_minus_static: -0.0324 ± 0.0024
+  cost_pro_h_minus_ind_h: -0.0364 ± 0.0071
+  cost_pro_g_minus_pro_h: -0.0026 ± 0.0008
+  cost_ind_g_minus_ind_h: -0.0019 ± 0.0006
+  cost_pro_g_minus_ind_g: -0.0371 ± 0.0070
+  cost_pro_h_minus_gbm_h: +0.0431 ± 0.0065
+  cost_pro_h_minus_static_h: -0.3909 ± 0.0333
+  cost_pro_g_minus_static_h: -0.3935 ± 0.0331
+retained fraction of unrestricted-autonomy saving: 0.05207457757453341
+savings vs none: {'none': 0.0, 'static_h': 0.197, 'ind_h': 0.334, 'gbm_h': 0.364, 'pro_h': 0.348, 'ind_g': 0.334, 'pro_g': 0.349, 'pro_n': 0.367, 'oracle': 0.717}
+
+ABLATION
+Independent Beta (lambda=0)                  Brier 0.1396 ECE 0.0495 costH 1.729 costG 1.727
+Raw-outcome propagation                      Brier 0.1404 ECE 0.0470 costH 1.722 costG 1.720
+Surprise propagation, supply edges only      Brier 0.1385 ECE 0.0422 costH 1.727
+Surprise propagation, region edges only      Brier 0.1378 ECE 0.0485 costH 1.700
+Surprise propagation, both (proposed)        Brier 0.1369 ECE 0.0454 costH 1.692 costG 1.690
+
+DELTA SWEEP (cost per supplier-day)
+0 {'h': 1.643, 'g': 1.643, 'n': 1.643}
+1 {'h': 1.692, 'g': 1.69, 'n': 1.643}
+2 {'h': 1.735, 'g': 1.727, 'n': 1.643}
+3 {'h': 1.774, 'g': 1.759, 'n': 1.643}
+
+RHO SWEEP
+0.5 {'ind': (0.276, 0.577, 1.714), 'pro': (0.244, 0.568, 1.684)}
+0.6 {'ind': (0.299, 0.497, 1.72), 'pro': (0.263, 0.502, 1.686)}
+0.7 {'ind': (0.325, 0.422, 1.726), 'pro': (0.287, 0.43, 1.688)}
+0.8 {'ind': (0.358, 0.343, 1.727), 'pro': (0.319, 0.352, 1.69)}
+0.9 {'ind': (0.41, 0.253, 1.727), 'pro': (0.373, 0.26, 1.69)}
+0.95 {'ind': (0.458, 0.196, 1.727), 'pro': (0.421, 0.2, 1.69)}
+0.99 {'ind': (0.55, 0.12, 1.727), 'pro': (0.518, 0.118, 1.691)}
+
+CORRELATION SWEEP (Brier; shock_scale)
+0.0 ind 0.1165 pro 0.1156 diff (-0.0008670590627926548, 0.0002759771627974987) rel -0.0074
+0.5 ind 0.1294 pro 0.1278 diff (-0.0015749922871475311, 0.0003049411587942198) rel -0.0122
+1.0 ind 0.1396 pro 0.1369 diff (-0.0027142458441963163, 0.0003788034164193629) rel -0.0194
+1.5 ind 0.1474 pro 0.1433 diff (-0.0041609167698277135, 0.0005117650417435771) rel -0.0282
+2.0 ind 0.1523 pro 0.1468 diff (-0.0054810184068520475, 0.0006283689276056453) rel -0.036
+saved results_repro.json

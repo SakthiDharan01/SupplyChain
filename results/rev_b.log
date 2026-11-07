@@ -1,0 +1,15 @@
+baseline {'brier_static': 0.17200932765151514, 'brier_ind': 0.13964303210322193, 'brier_trust': 0.13692878625902563, 'diff': (-0.0027142458441963163, 0.0003788034164193629), 'rel': -0.019437030285836165, 'cost_human_ind': 1.728590818208773, 'cost_human_trust': 1.6921627730230901, 'cost_diff': (-0.0364280451856831, 0.007120456631425308), 'cost_gov_trust': 1.6895807905634939, 'spend_gov': 868.7256943966147, 'spend_unres': 3767.4366311280673, 'cost_unres_trust': 1.642580374473611}
+graph drop50 0.1376 vs ind 0.1396 rel -0.014
+graph rewire 0.1385 vs ind 0.1396 rel -0.008
+graph region50 0.1374 vs ind 0.1396 rel -0.016
+graph random 0.139 vs ind 0.1396 rel -0.004
+missing 0.1 0.1382 ind 0.1408 rel -0.019 cost trust 1.698 ind 1.735
+missing 0.3 0.1411 ind 0.1439 rel -0.019 cost trust 1.713 ind 1.758
+missing 0.5 0.145 ind 0.1479 rel -0.019 cost trust 1.744 ind 1.801
+delay 1 0.1402 ind 0.1428 static 0.172 rel -0.018 cost trust 1.730 ind 1.765
+delay 3 0.1457 ind 0.1481 static 0.172 rel -0.016 cost trust 1.794 ind 1.838
+delay 7 0.1536 ind 0.1556 static 0.172 rel -0.013 cost trust 1.887 ind 1.935
+gen independent static 0.1294 ind 0.0994 trust 0.1009 diff +0.0015+-0.0002 rel 0.015 cost h-ind 1.276 h-trust 1.312 gov 1.311 spend 566/2724
+gen global static 0.1487 ind 0.1203 trust 0.1187 diff -0.0016+-0.0003 rel -0.013 cost h-ind 1.528 h-trust 1.501 gov 1.499 spend 664/3154
+gen drift static 0.2103 ind 0.1695 trust 0.1650 diff -0.0045+-0.0005 rel -0.027 cost h-ind 1.991 h-trust 1.943 gov 1.940 spend 1127/4819
+gen contagion static 0.1780 ind 0.1533 trust 0.1502 diff -0.0031+-0.0003 rel -0.020 cost h-ind 1.898 h-trust 1.848 gov 1.846 spend 938/4137
